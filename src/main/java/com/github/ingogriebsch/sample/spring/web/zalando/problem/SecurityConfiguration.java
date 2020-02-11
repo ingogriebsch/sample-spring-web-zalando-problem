@@ -42,7 +42,11 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
-        http.exceptionHandling().authenticationEntryPoint(securityProblemSupport).accessDeniedHandler(securityProblemSupport);
+        http.authorizeRequests() //
+            .anyRequest().authenticated() //
+            .and().httpBasic() //
+            .and().exceptionHandling() //
+            .authenticationEntryPoint(securityProblemSupport) //
+            .accessDeniedHandler(securityProblemSupport);
     }
 }
