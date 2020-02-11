@@ -102,6 +102,10 @@ class ProblemController {
     void problemIfRequestBodyIsNotValid(@RequestBody @Valid Body body) {
     }
 
+    @GetMapping("/problemIfRequestContainsUnkownAuthentication")
+    void problemIfRequestContainsUnkownAuthentication() {
+    }
+
     @GetMapping("/problemIfRequestDoesNotContainAuthentication")
     void problemIfRequestDoesNotContainAuthentication() {
     }

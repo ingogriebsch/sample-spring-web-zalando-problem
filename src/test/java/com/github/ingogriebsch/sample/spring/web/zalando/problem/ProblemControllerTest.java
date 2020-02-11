@@ -241,6 +241,20 @@ class ProblemControllerTest {
     }
 
     @Test
+    void problemIfRequestContainsUnkownAuthentication() throws Exception {
+        Problem expected = problem(UNAUTHORIZED, "Bad credentials");
+
+        ResultActions actions =
+            mockMvc.perform(get("/problemIfRequestContainsUnkownAuthentication").with(httpBasic("you don't", "know me")));
+        actions.andExpect(status().is(isStatus(expected.getStatus())));
+        actions.andExpect(content().contentType(APPLICATION_PROBLEM_JSON));
+
+        MockHttpServletResponse response = actions.andReturn().getResponse();
+        Problem actual = objectMapper.readValue(response.getContentAsString(), Problem.class);
+        assertThat(actual).isEqualToComparingFieldByField(expected);
+    }
+
+    @Test
     void problemIfRequestDoesNotContainAuthentication() throws Exception {
         Problem expected = problem(UNAUTHORIZED, "Full authentication is required to access this resource");
 
