@@ -42,6 +42,7 @@ import static org.zalando.problem.Status.METHOD_NOT_ALLOWED;
 import static org.zalando.problem.Status.NOT_ACCEPTABLE;
 import static org.zalando.problem.Status.NOT_FOUND;
 import static org.zalando.problem.Status.NOT_IMPLEMENTED;
+import static org.zalando.problem.Status.UNAUTHORIZED;
 import static org.zalando.problem.Status.UNSUPPORTED_MEDIA_TYPE;
 
 import java.util.Map;
@@ -237,6 +238,19 @@ class ProblemControllerTest {
             objectMapper.readValue(response.getContentAsString(), ConstraintViolationProblem.class);
         assertThat(actual).isEqualToComparingOnlyGivenFields(expectedProblem, "status", "title");
         assertThat(actual.getViolations()).hasSize(1).first().isEqualToComparingFieldByField(expectedViolation);
+    }
+
+    @Test
+    void problemIfRequestDoesNotContainAuthentication() throws Exception {
+        Problem expected = problem(UNAUTHORIZED, "Full authentication is required to access this resource");
+
+        ResultActions actions = mockMvc.perform(get("/problemIfRequestDoesNotContainAuthentication"));
+        actions.andExpect(status().is(isStatus(expected.getStatus())));
+        actions.andExpect(content().contentType(APPLICATION_PROBLEM_JSON));
+
+        MockHttpServletResponse response = actions.andReturn().getResponse();
+        Problem actual = objectMapper.readValue(response.getContentAsString(), Problem.class);
+        assertThat(actual).isEqualToComparingFieldByField(expected);
     }
 
     @Test

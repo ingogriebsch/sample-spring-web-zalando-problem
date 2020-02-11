@@ -102,6 +102,10 @@ class ProblemController {
     void problemIfRequestBodyIsNotValid(@RequestBody @Valid Body body) {
     }
 
+    @GetMapping("/problemIfRequestDoesNotContainAuthentication")
+    void problemIfRequestDoesNotContainAuthentication() {
+    }
+
     @GetMapping("/problemIfRequestParameterIsNotGiven")
     void problemIfRequestParameterIsNotGiven(@RequestParam String param) {
     }
