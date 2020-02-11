@@ -1,7 +1,7 @@
 # Spring Web Zalando Problem sample
 [![Actions Status](https://github.com/ingogriebsch/sample-spring-web-zalando-problem/workflows/verify%20project/badge.svg)](https://github.com/ingogriebsch/sample-spring-web-zalando-problem/actions)
 [![Codecov Status](https://codecov.io/gh/ingogriebsch/sample-spring-web-zalando-problem/branch/master/graph/badge.svg)](https://codecov.io/gh/ingogriebsch/sample-spring-web-zalando-problem)
-[![Codacy Status](https://api.codacy.com/project/badge/Grade/19e9eecec72846cfbff047bed2dff18b)](https://app.codacy.com/app/ingo.griebsch/sample-spring-web-zalando-problem?utm_source=github.com&utm_medium=referral&utm_content=ingogriebsch/sample-spring-web-zalando-problem&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Status](https://api.codacy.com/project/badge/Grade/7aa1631180e24c47abd45266b98c9a81)](https://app.codacy.com/app/ingo.griebsch/sample-spring-web-zalando-problem?utm_source=github.com&utm_medium=referral&utm_content=ingogriebsch/sample-spring-web-zalando-problem&utm_campaign=Badge_Grade_Dashboard)
 [![DepShield Status](https://depshield.sonatype.org/badges/ingogriebsch/sample-spring-web-zalando-problem/depshield.svg)](https://depshield.github.io)
 [![Dependatbot Status](https://api.dependabot.com/badges/status?host=github&repo=ingogriebsch/sample-spring-web-zalando-problem)](https://app.dependabot.com/accounts/ingogriebsch/repos/238964265)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
