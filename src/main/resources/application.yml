@@ -1,5 +1,6 @@
 # Configuration based on https://github.com/zalando/problem-spring-web/tree/master/problem-spring-web#configuration
 spring:
+  main:    banner-mode: OFF
   http:
     encoding:
       force: true
