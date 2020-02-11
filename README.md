@@ -10,7 +10,9 @@ This sample shows you how to integrate Zalando's Problem framework into the Spri
 
 This sample does not use the problem-spring-web-starter or problem-spring-web-autoconfigure. 
 The reason is that using the auto configuration would result in having two filter chains configured. 
-One configured through the problem-spring-web-autoconfigure [SecurityConfiguration](https://github.com/zalando/problem-spring-web/blob/0.25.2/problem-spring-web-autoconfigure/src/main/java/org/zalando/problem/spring/web/autoconfigure/security/SecurityConfiguration.java) and another one configured through the spring-boot-autoconfigure [SpringBootWebSecurityConfiguration](https://github.com/spring-projects/spring-boot/blob/v2.2.4.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/servlet/SpringBootWebSecurityConfiguration.java).
+
+One configured through the `problem-spring-web-autoconfigure` [SecurityConfiguration](https://github.com/zalando/problem-spring-web/blob/0.25.2/problem-spring-web-autoconfigure/src/main/java/org/zalando/problem/spring/web/autoconfigure/security/SecurityConfiguration.java) and another one configured through the `spring-boot-autoconfigure` [SpringBootWebSecurityConfiguration](https://github.com/spring-projects/spring-boot/blob/v2.2.4.RELEASE/spring-boot-project/spring-boot-autoconfigure/src/main/java/org/springframework/boot/autoconfigure/security/servlet/SpringBootWebSecurityConfiguration.java).
+
 If this auto configuration applies the filter chain which should apply is the second one in line therefore the service is not acting as expected.
 Therefore the service is configuring the filter chain and all related and necessary parts on it's own to prevent the unwanted behavior.  
 
