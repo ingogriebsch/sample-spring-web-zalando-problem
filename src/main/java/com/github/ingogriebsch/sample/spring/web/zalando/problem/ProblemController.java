@@ -73,6 +73,11 @@ class ProblemController {
         throw new CustomProblem(56789);
     }
 
+    @GetMapping("/problemIfExceptionIsThrown")
+    void problemIfExceptionIsThrown() throws Exception {
+        throw new Exception("Problem!");
+    }
+
     @GetMapping("/problemIfIllegalArgumentExceptionIsThrown")
     void problemIfIllegalArgumentExceptionIsThrown() {
         throw new IllegalArgumentException("Problem!");
@@ -114,24 +119,19 @@ class ProblemController {
         throw new RuntimeException("Problem!");
     }
 
+    @GetMapping("/problemIfSocketTimeoutExceptionIsThrown")
+    void problemIfSocketTimeoutExceptionIsThrown() throws Exception {
+        throw new SocketTimeoutException("Problem!");
+    }
+
     @GetMapping("/problemIfTeapotExceptionIsThrown")
     void problemIfTeapotExceptionIsThrown() throws Exception {
         throw new TeapotException("Peppermint");
     }
 
-    @GetMapping("/problemIfExceptionIsThrown")
-    void problemIfExceptionIsThrown() throws Exception {
-        throw new Exception("Problem!");
-    }
-
     @GetMapping("/problemIfThrowableIsThrown")
     void problemIfThrowableIsThrown() throws Throwable {
         throw new Throwable("Problem!");
-    }
-
-    @GetMapping("/problemIfSocketTimeoutExceptionIsThrown")
-    void problemIfSocketTimeoutExceptionIsThrown() throws Exception {
-        throw new SocketTimeoutException("Problem!");
     }
 
     @PostMapping(path = "/problemIfUnsupportedMediaTypeIsGiven", consumes = APPLICATION_JSON_VALUE)

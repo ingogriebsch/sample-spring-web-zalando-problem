@@ -157,6 +157,19 @@ class ProblemControllerTest {
     }
 
     @Test
+    void problemIfExceptionIsThrown() throws Exception {
+        Problem expected = problem(INTERNAL_SERVER_ERROR, "Problem!");
+
+        ResultActions actions = mockMvc.perform(get("/problemIfExceptionIsThrown").with(basicAuth()));
+        actions.andExpect(status().is(isStatus(expected.getStatus())));
+        actions.andExpect(content().contentType(APPLICATION_PROBLEM_JSON));
+
+        MockHttpServletResponse response = actions.andReturn().getResponse();
+        Problem actual = objectMapper.readValue(response.getContentAsString(), Problem.class);
+        assertThat(actual).isEqualToComparingFieldByField(expected);
+    }
+
+    @Test
     void problemIfIllegalArgumentExceptionIsThrown() throws Exception {
         Problem expected = problem(INTERNAL_SERVER_ERROR, "Problem!");
 
@@ -267,10 +280,10 @@ class ProblemControllerTest {
     }
 
     @Test
-    void problemIfExceptionIsThrown() throws Exception {
-        Problem expected = problem(INTERNAL_SERVER_ERROR, "Problem!");
+    void problemIfSocketTimeoutExceptionIsThrown() throws Exception {
+        Problem expected = problem(GATEWAY_TIMEOUT, "Problem!");
 
-        ResultActions actions = mockMvc.perform(get("/problemIfExceptionIsThrown").with(basicAuth()));
+        ResultActions actions = mockMvc.perform(get("/problemIfSocketTimeoutExceptionIsThrown").with(basicAuth()));
         actions.andExpect(status().is(isStatus(expected.getStatus())));
         actions.andExpect(content().contentType(APPLICATION_PROBLEM_JSON));
 
@@ -308,19 +321,6 @@ class ProblemControllerTest {
     }
 
     @Test
-    void problemIfSocketTimeoutExceptionIsThrown() throws Exception {
-        Problem expected = problem(GATEWAY_TIMEOUT, "Problem!");
-
-        ResultActions actions = mockMvc.perform(get("/problemIfSocketTimeoutExceptionIsThrown").with(basicAuth()));
-        actions.andExpect(status().is(isStatus(expected.getStatus())));
-        actions.andExpect(content().contentType(APPLICATION_PROBLEM_JSON));
-
-        MockHttpServletResponse response = actions.andReturn().getResponse();
-        Problem actual = objectMapper.readValue(response.getContentAsString(), Problem.class);
-        assertThat(actual).isEqualToComparingFieldByField(expected);
-    }
-
-    @Test
     void problemIfUnsupportedMediaTypeIsGiven() throws Exception {
         Problem expected = problem(UNSUPPORTED_MEDIA_TYPE, "Content type '' not supported");
 
@@ -352,6 +352,21 @@ class ProblemControllerTest {
         return httpBasic(user.getName(), user.getPassword());
     }
 
+    private static Matcher<Integer> isStatus(StatusType statusType) {
+        return new BaseMatcher<Integer>() {
+
+            @Override
+            public void describeTo(Description description) {
+                description.appendText("STATUS");
+            }
+
+            @Override
+            public boolean matches(Object actual) {
+                return valueOf(statusType.getStatusCode()).equals(actual);
+            }
+        };
+    }
+
     private static Problem problem(Status status, String detail) {
         return Problem.builder().withStatus(status).withTitle(status.getReasonPhrase()).withDetail(detail).build();
     }
@@ -363,21 +378,6 @@ class ProblemControllerTest {
             builder.with(entry.getKey(), entry.getValue());
         }
         return builder.build();
-    }
-
-    private static Matcher<Integer> isStatus(StatusType statusType) {
-        return new BaseMatcher<Integer>() {
-
-            @Override
-            public boolean matches(Object actual) {
-                return valueOf(statusType.getStatusCode()).equals(actual);
-            }
-
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("STATUS");
-            }
-        };
     }
 
 }
