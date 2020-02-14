@@ -17,6 +17,7 @@ If this auto configuration applies the filter chain which should apply is the se
 Therefore the service is configuring the filter chain and all related and necessary parts on it's own to prevent the unwanted behavior.  
 
 ## Additional resources
+
 *   [Problem Details for HTTP APIs](http://tools.ietf.org/html/rfc7807)
 *   [A Guide to the Problem Spring Web Library](https://www.baeldung.com/problem-spring-web)
 *   [Exception Handling in Spring MVC](https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc#using-controlleradvice-classes)
