@@ -30,6 +30,7 @@ import java.net.SocketTimeoutException;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
+import lombok.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,8 +40,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.zalando.problem.Problem;
-
-import lombok.Value;
 
 /**
  * {@link RestController} that implements multiple use cases to explain which case leads to which type of problem.

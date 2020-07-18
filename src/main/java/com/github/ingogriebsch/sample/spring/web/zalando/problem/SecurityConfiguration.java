@@ -19,15 +19,14 @@
  */
 package com.github.ingogriebsch.sample.spring.web.zalando.problem;
 
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.zalando.problem.Problem;
 import org.zalando.problem.spring.web.advice.security.SecurityProblemSupport;
-
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 /**
  * {@link Configuration} which configures all necessary parts to support Spring Security related the {@link Problem problems}.

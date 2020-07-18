@@ -48,7 +48,6 @@ import static org.zalando.problem.Status.UNSUPPORTED_MEDIA_TYPE;
 import java.util.Map;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;

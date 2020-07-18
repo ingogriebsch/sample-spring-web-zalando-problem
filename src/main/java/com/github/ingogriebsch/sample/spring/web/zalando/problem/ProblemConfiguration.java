@@ -20,7 +20,6 @@
 package com.github.ingogriebsch.sample.spring.web.zalando.problem;
 
 import com.fasterxml.jackson.databind.Module;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.zalando.problem.Problem;

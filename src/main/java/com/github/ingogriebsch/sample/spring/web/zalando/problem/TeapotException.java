@@ -19,12 +19,11 @@
  */
 package com.github.ingogriebsch.sample.spring.web.zalando.problem;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.zalando.problem.AbstractThrowableProblem;
 import org.zalando.problem.ThrowableProblem;
 import org.zalando.problem.spring.web.advice.AdviceTrait;
-
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 /**
  * {@link ThrowableProblem} implementation to demonstrate how to introduce a special {@link AdviceTrait}.

@@ -26,12 +26,10 @@ import static org.zalando.problem.Status.TOO_MANY_REQUESTS;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-
-import org.zalando.problem.AbstractThrowableProblem;
-import org.zalando.problem.Problem;
-
 import lombok.Getter;
 import lombok.NonNull;
+import org.zalando.problem.AbstractThrowableProblem;
+import org.zalando.problem.Problem;
 
 /**
  * {@link Problem} implementation to demonstrate how to integrate a custom use case.
