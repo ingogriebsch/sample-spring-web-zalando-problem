@@ -97,7 +97,7 @@
         <dependency>
             <groupId>org.zalando</groupId>
             <artifactId>problem-spring-web</artifactId>
-            <version>0.25.2</version>
+            <version>0.26.0</version>
         </dependency>
         <!-- Check the README to understand why we don't use the starter 
         <dependency>
