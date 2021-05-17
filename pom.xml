@@ -126,7 +126,7 @@
             <plugin><!-- https://code.revelc.net/impsort-maven-plugin -->
                 <groupId>net.revelc.code</groupId>
                 <artifactId>impsort-maven-plugin</artifactId>
-                <version>1.3.2</version>
+                <version>1.6.2</version>
                 <configuration>
                     <staticGroups>java.,javax.,*</staticGroups>
                     <groups>java.,javax.,*</groups>
